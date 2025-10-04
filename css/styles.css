@@ -1,0 +1,332 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    background: #f6f8fa;
+    color: #222;
+}
+
+header {
+    background: #fff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 8px #0001;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+header h1 {
+    margin: 0;
+    color: #1a7f64;
+}
+
+nav {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+#search {
+    flex: 1;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+#toggle-view {
+    background: #1a7f64;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+main {
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.event-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+.event-list.list-view {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.event-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #0002;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    transition: box-shadow 0.2s;
+    position: relative;
+}
+
+.event-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.event-card h3 {
+    margin: 0.5rem 0 0.2rem 0;
+    font-size: 1.2rem;
+    color: #1a7f64;
+}
+
+.event-card .category {
+    font-size: 0.95rem;
+    color: #555;
+    font-weight: 600;
+}
+
+.event-card .sold-out {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: #e74c3c;
+    color: #fff;
+    padding: 0.2rem 0.7rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.event-card .venue {
+    font-size: 0.98rem;
+    color: #444;
+}
+
+.event-card .date {
+    font-size: 0.98rem;
+    color: #1a7f64;
+}
+
+.event-card .price {
+    font-size: 1.1rem;
+    color: #222;
+    font-weight: bold;
+}
+
+.event-card button {
+    background: #1a7f64;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+.event-card button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+footer {
+    background: #fff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    color: #888;
+    font-size: 0.95rem;
+    border-top: 1px solid #eee;
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 1rem 0.2rem;
+    }
+    .event-card img {
+        height: 140px;
+    }
+}
+
+@media (max-width: 480px) {
+    .event-card img {
+        height: 100px;
+    }
+    header {
+        padding: 0.7rem 0.5rem;
+    }
+}
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal-content {
+    background: #fff;
+    border-radius: 12px;
+    max-width: 900px;
+    width: 95vw;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 2rem;
+    display: flex;
+    gap: 2rem;
+    position: relative;
+}
+.modal-close {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    font-size: 2rem;
+    color: #1a7f64;
+    cursor: pointer;
+    z-index: 1100;
+    background: #fff;
+    border-radius: 50%;
+    width: 40px; height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px #0002;
+}
+@media (max-width: 900px) {
+    .modal-content {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+}
+
+.main-header.dark {
+    background: #10182b;
+    color: #fff;
+    padding: 0 0 0.5rem 0;
+    border-bottom: 1px solid #222a3a;
+    box-shadow: 0 2px 8px #0002;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 2rem 0.5rem 2rem;
+    gap: 1rem;
+}
+.header-title {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.emoji {
+    font-size: 1.7rem;
+}
+.brand {
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.brand-sm {
+    color: #1a7f64;
+    font-size: 1rem;
+    margin-left: 0.5rem;
+    font-weight: 400;
+}
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+#search {
+    width: 260px;
+    padding: 0.45rem 1rem;
+    border-radius: 6px;
+    border: 1px solid #2a334a;
+    font-size: 1rem;
+    background: #181f33;
+    color: #fff;
+}
+#search::placeholder {
+    color: #b0b8c9;
+}
+.btn {
+    background: #181f33;
+    color: #fff;
+    border: 1px solid #2a334a;
+    border-radius: 6px;
+    padding: 0.45rem 1.1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s, border 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+.btn.primary {
+    background: #1a7f64;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+}
+.btn:hover, .btn:focus {
+    background: #22305a;
+    border-color: #1a7f64;
+}
+.cart-ico {
+    font-size: 1.1em;
+}
+.header-filters {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.7rem 2rem 0.7rem 2rem;
+    background: #10182b;
+    border-bottom: 1px solid #222a3a;
+    font-size: 1rem;
+    flex-wrap: wrap;
+}
+.header-filters select,
+.header-filters input[type="date"],
+.header-filters input[type="number"] {
+    background: #181f33;
+    color: #fff;
+    border: 1px solid #2a334a;
+    border-radius: 5px;
+    padding: 0.25rem 0.5rem;
+    font-size: 1rem;
+}
+.header-filters input[type="number"]::-webkit-input-placeholder { color: #b0b8c9; }
+.header-filters input[type="number"]::-moz-placeholder { color: #b0b8c9; }
+.header-filters input[type="number"]:-ms-input-placeholder { color: #b0b8c9; }
+.header-filters input[type="number"]::placeholder { color: #b0b8c9; }
+
+@media (max-width: 900px) {
+    .header-row, .header-filters {
+        padding: 0.7rem 0.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.7rem;
+    }
+    .header-actions {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    #search {
+        width: 100%;
+        min-width: 0;
+    }
+}

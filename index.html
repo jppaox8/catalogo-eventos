@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SanMartínVibes - Catálogo de Eventos</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="main-header dark">
+        <div class="header-row">
+            <div class="header-title">
+                <span class="emoji">🎫</span>
+                <span class="brand">EVENTOS <span class="brand-sm">SanMartínVibes</span></span>
+            </div>
+            <div class="header-actions">
+                <input type="text" id="search" placeholder="Buscar por título, artista o ciudad">
+                <button id="toggle-view" class="btn">Ver: Grid</button>
+                <button class="btn primary">Comprar entradas</button>
+                <button class="btn"><span class="cart-ico">🛒</span> Carrito</button>
+            </div>
+        </div>
+        <div class="header-filters">
+            <select><option>Todas las categorías</option></select>
+            <select><option>Todas las ciudades</option></select>
+            Fecha min: <input type="date">
+            Fecha max: <input type="date">
+            Precio min: <input type="number" min="0" style="width:70px;">
+            Precio max: <input type="number" min="0" style="width:70px;">
+            <select><option>Todos</option></select>
+            <select>
+                <option>Fecha ↑</option>
+                <option>Fecha ↓</option>
+            </select>
+        </div>
+    </header>
+    <main>
+        <section id="events-container" class="event-list">
+        </section>
+        <div id="no-results" style="display:none;">
+            <p>No hay resultados.</p>
+            <button id="clear-filters">Limpiar filtros</button>
+        </div>
+        <div id="event-modal" class="modal" style="display:none;">
+            <div class="modal-content" id="modal-content">
+            </div>
+            <span class="modal-close" id="modal-close">&times;</span>
+        </div>
+        <div id="cart-modal" class="modal" style="display:none;">
+    <div class="modal-content" id="cart-content">
+    </div>
+    <span class="modal-close" id="cart-close">&times;</span>
+</div>
+    </main>
+    <script src="js/app.js"></script>
+</body>
+</html>
